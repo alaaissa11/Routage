@@ -1,0 +1,12 @@
+<h2>Facture {{ id }}</h2> <p>Active: {{ active }}</p>
+<div *ngIf="active; else inactiveMessage">
+    <h2>Informations de la facture {{ id }}</h2>
+    <p>Montant de la facture : {{ invoice?.montantFacture }}</p>
+    <p>Montant de remise : {{ invoice?.montantRemise }}</p>
+    <p>Date de la facture : {{ invoice?.dateFacture }}</p>
+  </div>
+
+  <ng-template #inactiveMessage>
+    <p>Impossible de visualiser les détails de la facture</p>
+  </ng-template>
+  <button [routerLink]="['/main-invoice']">Retour</button>
